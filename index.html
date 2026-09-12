@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NammaWeb AI Learning Suite | Elite AI Prep for NEET, CET & JEE</title>
+  <meta name="description" content="Master NEET (Medical), KCET, and JEE (Engineering) with NammaWeb AI Learning Suite. Predictive analytics, smart question solvers, and tailored cohorts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #070d12;
+      --bg-card: #0e1921;
+      --teal-primary: #005f60;
+      --teal-accent: #00a896;
+      --teal-glow: rgba(0, 168, 150, 0.25);
+      --gold-luxury: #d4af37;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .brand-font { font-family: 'Space Grotesk', sans-serif; }
+
+    /* Luxury Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 13, 18, 0.85);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .brand-logo img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+    .brand-logo span {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a.active { color: var(--teal-accent); }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 5% 4rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(0, 168, 150, 0.1);
+      border: 1px solid var(--teal-accent);
+      border-radius: 50px;
+      color: var(--teal-accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, #fff, var(--teal-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 750px;
+      margin: 0 auto 2rem;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--teal-primary), var(--teal-accent));
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 25px var(--teal-glow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px var(--teal-glow);
+    }
+
+    /* 6-Line Overview Section */
+    .overview-section {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 4rem 5%;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .six-lines {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .six-lines li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--teal-accent);
+      font-size: 1.05rem;
+    }
+    .six-lines li svg {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      stroke: var(--teal-accent);
+      margin-top: 3px;
+    }
+
+    /* Visual Image Section (Medical & Engg) */
+    .gallery-section { padding: 5rem 5%; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .gallery-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      height: 320px;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-card:hover img { transform: scale(1.05); }
+    .gallery-tag {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      background: rgba(7, 13, 18, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+    .gallery-tag h4 { font-size: 1rem; margin-bottom: 2px; }
+    .gallery-tag p { font-size: 0.8rem; color: var(--teal-accent); }
+
+    /* Pricing / Booking Section */
+    .pricing-section {
+      padding: 5rem 5%;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .price-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .price-card.featured {
+      border-color: var(--teal-accent);
+      box-shadow: 0 0 30px var(--teal-glow);
+    }
+    .ribbon {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--gold-luxury);
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+    .price-duration { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .price-cost { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .price-cost span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+    .price-card ul {
+      list-style: none;
+      margin: 1.5rem 0 2rem;
+      flex-grow: 1;
+    }
+    .price-card ul li {
+      margin-bottom: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: flex;
+      gap: 8px;
+    }
+    .btn-booking {
+      display: block;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--teal-accent);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .price-card.featured .btn-booking {
+      background: var(--teal-accent);
+      color: #000;
+    }
+    .btn-booking:hover {
+      background: var(--teal-primary);
+      color: #fff;
+    }
+
+    /* Modal / Pop-in WhatsApp */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--teal-accent);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      max-width: 440px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px; right: 18px;
+      background: none; border: none;
+      color: var(--text-muted); font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .btn-wa-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-top: 1.5rem;
+    }
+
+    /* Floating WhatsApp Icon */
+    .floating-wa {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 99;
+      transition: transform 0.3s;
+    }
+    .floating-wa:hover { transform: scale(1.1); }
+    .floating-wa svg { fill: #fff; width: 32px; height: 32px; }
+
+    /* Footer */
+    footer {
+      padding: 4rem 5% 2rem;
+      background: #04080b;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+    .footer-logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+    .footer-logo-wrapper img { width: 56px; height: 56px; }
+    .footer-mail {
+      color: var(--teal-accent);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    @media(max-width: 768px) {
+      .hero { padding: 4rem 5% 2rem; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <a href="index.html" class="brand-logo">
+      <img src="logo.png" alt="NammaWeb AI Logo">
+      <span>NammaWeb AI Suite</span>
+    </a>
+    <nav>
+      <a href="#overview" class="active">Overview</a>
+      <a href="#gallery">Courses</a>
+      <a href="#pricing">Bookings</a>
+      <a href="blog.html">SEO Strategy Blog</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <span class="badge">Next-Generation Entrance Exam AI</span>
+    <h1>Precision AI Training for <span>NEET, KCET & JEE</span></h1>
+    <p>Engineered for high-ranking medical & engineering aspirants across Karnataka & India. Elevate problem speed, eliminate recurring errors, and conquer top percentiles.</p>
+    <a href="#pricing" class="cta-btn">View Intensive Batches</a>
+  </section>
+
+  <!-- 6-Line Concise Information Section -->
+  <section class="overview-section" id="overview">
+    <div class="container">
+      <h2 class="section-title">Core Strategic Blueprint</h2>
+      <ul class="six-lines">
+        <li>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <strong>NEET Medical Dominance:</strong> Comprehensive AI-driven NCERT pattern drill engines for Biology, Chemistry, and physics-numerical velocity.
+        </li>
+        <li>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <strong>JEE Advanced Engineering Edge:</strong> Multi-step problem breakdown in Physics and Mathematics targeting 99+ percentile ranks.
+        </li>
+        <li>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <strong>KCET Speed Mastery:</strong> Specially structured rapid-fire solving models tailored to Karnataka board syllabus & CET time constraints.
+        </li>
+        <li>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <strong>Adaptive Weak-Spot Diagnostics:</strong> Proprietary AI isolates subtle conceptual leaks and feeds dynamic corrective quizzes.
+        </li>
+        <li>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <strong>24/7 Instant Doubt Resolution:</strong> Real-time neural solver providing step-by-step verified derivations and diagrams.
+        </li>
+        <li>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <strong>All-India Rank Benchmarking:</strong> Predictive analytics comparing your micro-performance curves against historical topper cohorts.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4 Realistic Photo Gallery (Medical & Engg) -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <h2 class="section-title">Specialized Academic Verticals</h2>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80" alt="NEET Medical Science Preparation">
+          <div class="gallery-tag">
+            <h4>NEET Medical AI Wing</h4>
+            <p>Bio-Genetics & Clinical Reasoning</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80" alt="JEE Engineering Physics & Math">
+          <div class="gallery-tag">
+            <h4>JEE Engineering Accelerator</h4>
+            <p>Applied Calculus & Mechanics</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=700&q=80" alt="CET Chemistry Lab Analysis">
+          <div class="gallery-tag">
+            <h4>CET Velocity Sprints</h4>
+            <p>Rapid State-Syllabus Chemistry</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="AI Adaptive Learning Center">
+          <div class="gallery-tag">
+            <h4>Cognitive AI Suite</h4>
+            <p>Live Rank & Performance Analytics</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking & Pricing Section with Indian Prices -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <h2 class="section-title">Enrolment Cohorts & Subscriptions</h2>
+      <div class="pricing-grid">
+        
+        <!-- 30 Days -->
+        <div class="price-card">
+          <div class="price-duration">30 Days Intensive</div>
+          <div class="price-cost">₹4,999 <span>/ one-time</span></div>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Perfect for last-mile revision and mock-exam speed optimization.</p>
+          <ul>
+            <li>✓ Full NEET/CET/JEE AI Question Solver</li>
+            <li>✓ 15 Full-Length Adaptive Mock Tests</li>
+            <li>✓ Accuracy & Speed Heatmap</li>
+            <li>✓ Standard WhatsApp Support</li>
+          </ul>
+          <a href="https://wa.me/917676546577?text=Hi%2C%20I%20want%20to%20book%20the%2030-Day%20NammaWeb%20AI%20Suite%20Course" class="btn-booking">Book 30-Day Pass</a>
+        </div>
+
+        <!-- 60 Days (Featured) -->
+        <div class="price-card featured">
+          <div class="ribbon">Most Popular</div>
+          <div class="price-duration">60 Days Accelerator</div>
+          <div class="price-cost">₹8,499 <span>/ one-time</span></div>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Comprehensive syllabus reinforcement with weak-area AI correction.</p>
+          <ul>
+            <li>✓ Everything in 30-Day Plan</li>
+            <li>✓ 40 Comprehensive Mock Exams</li>
+            <li>✓ Tailored Error-Recovery Modules</li>
+            <li>✓ Priority Mentor Analytics Review</li>
+          </ul>
+          <a href="https://wa.me/917676546577?text=Hi%2C%20I%20want%20to%20book%20the%2060-Day%20NammaWeb%20AI%20Suite%20Course" class="btn-booking">Book 60-Day Cohort</a>
+        </div>
+
+        <!-- 125 Days -->
+        <div class="price-card">
+          <div class="price-duration">125 Days Masterclass</div>
+          <div class="price-cost">₹14,999 <span>/ one-time</span></div>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Complete foundational mastery and multi-cycle exam simulation.</p>
+          <ul>
+            <li>✓ Unrestricted Full-Platform Access</li>
+            <li>✓ Unlimited Predictive AI Mocks</li>
+            <li>✓ All-India Percentile Forecast Model</li>
+            <li>✓ Dedicated 1-on-1 Strategy Sync</li>
+          </ul>
+          <a href="https://wa.me/917676546577?text=Hi%2C%20I%20want%20to%20book%20the%20125-Day%20NammaWeb%20AI%20Suite%20Course" class="btn-booking">Book 125-Day Cohort</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Capture WhatsApp Modal Popup (Timed) -->
+  <div class="modal-overlay" id="waModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Accelerate Your Rank</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Speak with an academic counselor on WhatsApp to claim a customized AI diagnostic trial.</p>
+      <a href="https://wa.me/917676546577?text=Hello%20NammaWeb%20AI%2C%20I%20am%20interested%20in%20the%20NEET%2FCET%2FJEE%20Learning%20Suite" target="_blank" class="btn-wa-action">
+        <svg width="22" height="22" fill="#fff" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.983.537 1.954.819 2.796.819 3.183 0 5.769-2.587 5.77-5.768.001-3.182-2.585-5.771-5.77-5.771zm0 10.426c-.752 0-1.636-.25-2.29-.636l-.164-.097-1.708.448.456-1.666-.107-.171c-.426-.677-.65-1.391-.65-2.532 0-2.614 2.128-4.742 4.743-4.742 2.614 0 4.741 2.128 4.742 4.742 0 2.615-2.128 4.743-4.742 4.743zm-7.031-4.66c0 6.627 5.373 12 12 12s12-5.373 12-12-5.373-12-12-12-12 5.373-12 12z"/></svg>
+        Connect on WhatsApp (7676546577)
+      </a>
+    </div>
+  </div>
+
+  <!-- Persistent Floating WhatsApp Trigger -->
+  <a href="https://wa.me/917676546577?text=Hello%20NammaWeb%20AI%2C%20I%20would%20like%20more%20details" target="_blank" class="floating-wa" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  </a>
+
+  <!-- Footer with Logo & Target Email -->
+  <footer>
+    <div class="footer-logo-wrapper">
+      <img src="logo.png" alt="NammaWeb Logo">
+      <span style="font-weight: 700; font-size: 1.25rem;">NammaWeb AI</span>
+      <a href="mailto:info@nammaweb.com" class="footer-mail">info@nammaweb.com</a>
+    </div>
+    <p style="color: var(--text-muted); font-size: 0.85rem;">&copy; 2026 NammaWeb AI Learning Suite. Dedicated to top NEET, CET, and JEE outcomes.</p>
+  </footer>
+
+  <script>
+    // Show pop-in WhatsApp modal after 6 seconds or on exit intent
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        if (!sessionStorage.getItem('modalSeen')) {
+          document.getElementById('waModal').style.display = 'flex';
+          sessionStorage.setItem('modalSeen', 'true');
+        }
+      }, 6000);
+    });
+
+    function closeModal() {
+      document.getElementById('waModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
